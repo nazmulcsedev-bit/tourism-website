@@ -18,18 +18,27 @@
 // });
 
 // export default api;
+// import axios from "axios";
+
+// console.log("VITE_API_URL:", import.meta.env.VITE_API_URL);
+
+// const api = axios.create({
+//   baseURL: import.meta.env.VITE_API_URL,
+// });
+
+// api.interceptors.request.use((config) => {
+//   console.log("Final Request URL:", config.baseURL + config.url);
+//   return config;
+// });
+
+// export default api;
 import axios from "axios";
 
-console.log("VITE_API_URL:", import.meta.env.VITE_API_URL);
+console.log("ENV =", import.meta.env);
+console.log("VITE_API_URL =", import.meta.env.VITE_API_URL);
 
 const api = axios.create({
   baseURL: import.meta.env.VITE_API_URL,
 });
 
-api.interceptors.request.use((config) => {
-  console.log("Final Request URL:", config.baseURL + config.url);
-  return config;
-});
-
 export default api;
-
