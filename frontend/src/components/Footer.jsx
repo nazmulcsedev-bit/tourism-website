@@ -46,7 +46,7 @@ const Footer = () => (
       </div>
     </div>
     <div className="border-t border-cream/10 py-5 text-center text-xs text-cream/40">
-      © {new Date().getFullYear()} Bhromon। সর্বস্বত্ব সংরক্ষিত।
+      © {new Date().getFullYear()} Bhromon সর্বস্বত্ব সংরক্ষিত।
     </div>
   </footer>
 );
