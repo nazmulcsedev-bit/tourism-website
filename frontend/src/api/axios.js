@@ -34,11 +34,8 @@
 // export default api;
 import axios from "axios";
 
-console.log("ENV =", import.meta.env);
-console.log("VITE_API_URL =", import.meta.env.VITE_API_URL);
-
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL,
+  baseURL: "https://tourism-website-as0c.onrender.com/api",
 });
 
 export default api;
