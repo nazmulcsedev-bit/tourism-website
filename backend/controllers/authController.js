@@ -23,6 +23,8 @@ const signup = async (req, res) => {
       _id: user._id,
       name: user.name,
       email: user.email,
+      phone: user.phone,
+      avatar: user.avatar,
       role: user.role,
       token: generateToken(user._id),
     });
@@ -53,6 +55,8 @@ const login = async (req, res) => {
       _id: user._id,
       name: user.name,
       email: user.email,
+      phone: user.phone,
+      avatar: user.avatar,
       role: user.role,
       token: generateToken(user._id),
     });
@@ -68,4 +72,57 @@ const getMe = async (req, res) => {
   res.json(req.user);
 };
 
-module.exports = { signup, login, getMe };
+// @desc    Update logged-in user's profile (name, phone, avatar)
+// @route   PUT /api/auth/profile
+// @access  Private
+const updateProfile = async (req, res) => {
+  try {
+    const user = await User.findById(req.user._id);
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    if (req.body.name) user.name = req.body.name;
+    if (req.body.phone !== undefined) user.phone = req.body.phone;
+    if (req.file) user.avatar = `/uploads/${req.file.filename}`;
+
+    // Optional password change
+    if (req.body.newPassword) {
+      if (!req.body.currentPassword) {
+        return res.status(400).json({ message: 'বর্তমান পাসওয়ার্ড দিন' });
+      }
+      const userWithPassword = await User.findById(req.user._id).select('+password');
+      const matches = await userWithPassword.matchPassword(req.body.currentPassword);
+      if (!matches) {
+        return res.status(401).json({ message: 'বর্তমান পাসওয়ার্ড সঠিক নয়' });
+      }
+      userWithPassword.password = req.body.newPassword;
+      userWithPassword.name = user.name;
+      userWithPassword.phone = user.phone;
+      userWithPassword.avatar = user.avatar;
+      await userWithPassword.save();
+      return res.json({
+        _id: userWithPassword._id,
+        name: userWithPassword.name,
+        email: userWithPassword.email,
+        phone: userWithPassword.phone,
+        avatar: userWithPassword.avatar,
+        role: userWithPassword.role,
+      });
+    }
+
+    await user.save();
+    res.json({
+      _id: user._id,
+      name: user.name,
+      email: user.email,
+      phone: user.phone,
+      avatar: user.avatar,
+      role: user.role,
+    });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+module.exports = { signup, login, getMe, updateProfile };

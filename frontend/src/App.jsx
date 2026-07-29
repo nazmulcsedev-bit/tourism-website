@@ -11,6 +11,7 @@ import Contact from './pages/Contact';
 import WhatsAppButton from './components/WhatsAppButton';
 import BookingForm from './pages/BookingForm';
 import MyBookings from './pages/MyBookings';
+import Profile from './pages/Profile';
 import PaymentSuccess from './pages/PaymentSuccess';
 import PaymentFail from './pages/PaymentFail';
 import PaymentCancel from './pages/PaymentCancel';
@@ -41,6 +42,7 @@ function App() {
           <Route element={<ProtectedRoute />}>
             <Route path="/my-bookings" element={<MyBookings />} />
             <Route path="/book/:id" element={<BookingForm />} />
+            <Route path="/profile" element={<Profile />} />
           </Route>
 
           {/* শুধু admin দের জন্য — nested routes with sidebar layout */}
