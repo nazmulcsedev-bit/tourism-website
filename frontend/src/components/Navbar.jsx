@@ -37,6 +37,9 @@ const Navbar = () => {
           <NavLink to="/" className={navLinkClass} end>
             হোম
           </NavLink>
+          <NavLink to="/about" className={navLinkClass}>
+            আমাদের সম্পর্কে
+          </NavLink>
           <NavLink to="/tours" className={navLinkClass}>
             ট্যুর প্যাকেজ
           </NavLink>
@@ -125,6 +128,9 @@ const Navbar = () => {
         <div className="flex flex-col gap-4 border-t border-cream/10 bg-jungle px-6 py-6 md:hidden">
           <NavLink to="/" className={navLinkClass} end onClick={() => setOpen(false)}>
             হোম
+          </NavLink>
+          <NavLink to="/about" className={navLinkClass} onClick={() => setOpen(false)}>
+            আমাদের সম্পর্কে
           </NavLink>
           <NavLink to="/tours" className={navLinkClass} onClick={() => setOpen(false)}>
             ট্যুর প্যাকেজ

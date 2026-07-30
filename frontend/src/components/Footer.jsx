@@ -18,6 +18,7 @@ const Footer = () => (
         <h4 className="font-display text-lg text-cream">দ্রুত লিংক</h4>
         <ul className="mt-3 space-y-2 text-sm text-cream/60">
           <li><Link to="/" className="hover:text-sunset">হোম</Link></li>
+          <li><Link to="/about" className="hover:text-sunset">আমাদের সম্পর্কে</Link></li>
           <li><Link to="/tours" className="hover:text-sunset">ট্যুর প্যাকেজ</Link></li>
           <li><Link to="/contact" className="hover:text-sunset">যোগাযোগ</Link></li>
           <li><Link to="/login" className="hover:text-sunset">লগইন</Link></li>
@@ -28,7 +29,7 @@ const Footer = () => (
       <div>
         <h4 className="font-display text-lg text-cream">যোগাযোগ</h4>
         <ul className="mt-3 space-y-2 text-sm text-cream/60">
-          <li className="flex items-center gap-2"><Phone size={14} /> +৮৮০ ১৪১২৩১২১৫</li>
+          <li className="flex items-center gap-2"><Phone size={14} /> +৮৮০ ১৭০০-০০০০০০</li>
           <li className="flex items-center gap-2"><Mail size={14} /> hello@bhromon.com</li>
         </ul>
       </div>
@@ -46,9 +47,9 @@ const Footer = () => (
       </div>
     </div>
     <div className="border-t border-cream/10 py-5 text-center text-xs text-cream/40">
-      © {new Date().getFullYear()} Bhromon সর্বস্বত্ব সংরক্ষিত।
+      © {new Date().getFullYear()} Bhromon। সর্বস্বত্ব সংরক্ষিত।
     </div>
   </footer>
 );
 
-export default Footer; 
+export default Footer;

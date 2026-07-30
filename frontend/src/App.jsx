@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import { ProtectedRoute, AdminRoute } from './components/RouteGuards';
 import Home from './pages/Home';
+import About from './pages/About';
 import Tours from './pages/Tours';
 import TourDetails from './pages/TourDetails';
 import Login from './pages/Login';
@@ -29,6 +30,7 @@ function App() {
       <main className="flex-1">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
           <Route path="/tours" element={<Tours />} />
           <Route path="/tours/:id" element={<TourDetails />} />
           <Route path="/login" element={<Login />} />
