@@ -29,7 +29,7 @@ const Footer = () => (
       <div>
         <h4 className="font-display text-lg text-cream">যোগাযোগ</h4>
         <ul className="mt-3 space-y-2 text-sm text-cream/60">
-          <li className="flex items-center gap-2"><Phone size={14} /> +৮৮০ ১৭০০-০০০০০০</li>
+          <li className="flex items-center gap-2"><Phone size={14} /> +৮৮০ ১৪১০-২৩১২১৫</li>
           <li className="flex items-center gap-2"><Mail size={14} /> hello@bhromon.com</li>
         </ul>
       </div>
